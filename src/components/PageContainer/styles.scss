@@ -1,0 +1,15 @@
+.page {
+    text-align: left;
+    background-color: var(--white);
+    max-width: 1000px;
+
+    z-index: 10;
+
+    margin-inline: 1rem;
+    padding: 2rem 1.5rem;
+    // position: relative;
+    border-radius: .75rem;
+    /* margin: 0 auto; */
+
+    box-shadow: 0 .125rem 1rem rgba(0, 0, 0, .125);
+}

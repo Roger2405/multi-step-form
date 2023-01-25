@@ -1,0 +1,1 @@
+export type PathProps = '/' | 'plans' | 'add-ons' | 'summary';

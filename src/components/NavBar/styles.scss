@@ -1,0 +1,43 @@
+.navBar {
+
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+
+    margin: 2rem 0;
+    z-index: 0;
+
+    &__link {
+        color: var(--white);
+        overflow: hidden;
+        font-weight: 700;
+
+        z-index: 2;
+
+        height: 2rem;
+        line-height: 2rem;
+
+        text-align: center;
+        text-decoration: none;
+
+        border-radius: 50%;
+        aspect-ratio: 1/1;
+        border: 1px solid var(--white);
+
+
+        &.active {
+            color: var(--marine-blue);
+            border-color: var(--light-blue);
+            background-color: var(--light-blue);
+        }
+    }
+}
+
+.fakeBg {
+    background-color: var(--marine-blue);
+    height: 25%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+}

@@ -1,0 +1,25 @@
+.next-step {
+    background-color: var(--marine-blue);
+
+    border: none;
+    border-radius: .25rem;
+
+    color: var(--white);
+    font-size: .85rem;
+
+    padding: .75rem 1.125rem;
+    margin-left: auto;
+}
+
+.buttons {
+    display: flex;
+
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    padding: 1rem;
+
+    background-color: var(--white);
+}

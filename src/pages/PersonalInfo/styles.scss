@@ -1,0 +1,29 @@
+label {
+    color: var(--marine-blue);
+    font-size: .75rem;
+
+    display: block;
+
+    font-weight: 500;
+}
+
+.field {
+    margin-top: 1rem;
+}
+
+input {
+    margin-top: .125rem;
+    padding: .75rem 1rem;
+
+    width: 100%;
+    position: relative;
+
+    border-radius: .25rem;
+    border: 1px solid var(--light-gray);
+
+    &::placeholder {
+        color: var(--cool-gray);
+        font-weight: 700;
+        font-size: .85rem;
+    }
+}
