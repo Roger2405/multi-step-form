@@ -8,32 +8,38 @@ import { AddOnsProps, PlanProps, PlanTypesProps } from '../../types';
 import './styles.scss';
 
 export default function AddOns() {
-    const [addOnsSelected, setAddOnsSelected] = useState(getObjectFromStorage<AddOnsProps[]>('addOnsSelected'));
+    const [addOnsSelected, setAddOnsSelected] = useState(getObjectFromStorage<AddOnsProps[]>('addOnsSelected') || []);
     const [planType, setPlanType] = useState<PlanTypesProps>(sessionStorage.getItem('planType') as PlanTypesProps);
 
     const addOns: AddOnsProps[] = [
         {
             name: 'Online service',
             description: ' Access to multiplayer games',
-            value: {
-                'monthly': 1,
-                'yearly': 10,
+            'monthly': {
+                value: 1,
+            },
+            'yearly': {
+                value: 10,
             }
         },
         {
             name: 'Larger storage',
             description: 'Extra 1TB of cloud save',
-            value: {
-                'monthly': 2,
-                'yearly': 20,
+            'monthly': {
+                value: 2,
+            },
+            'yearly': {
+                value: 20,
             }
         },
         {
             name: 'Customizable profile',
             description: 'Custom theme on your profile',
-            value: {
-                'monthly': 2,
-                'yearly': 20,
+            'monthly': {
+                value: 2,
+            },
+            'yearly': {
+                value: 20,
             }
         },
     ]
@@ -49,7 +55,7 @@ export default function AddOns() {
         console.log('indexOf', indexOf)
         var newAddOns = addOnsSelected;
         if (addOnsSelected) {
-            if (indexOf >= 0)
+            if (indexOf > -1)
                 newAddOns.splice(indexOf, 1);
             else
                 newAddOns.push(addOnSelected);

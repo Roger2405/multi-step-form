@@ -12,9 +12,10 @@ import Switch from '../../components/Plans/Switch';
 import { PlanProps, PlanTypesProps } from '../../types';
 import Plan from '../../components/Plans/Plan';
 import getObjectFromStorage from '../../common/functions/getObjectFromStorage';
+import Paragraph from '../../components/Paragraph';
 
 export default function Plans() {
-    const [planType, setPlanType] = useState<PlanTypesProps>(sessionStorage.getItem('planType') as PlanTypesProps);
+    const [planType, setPlanType] = useState<PlanTypesProps>((sessionStorage.getItem('planType') as PlanTypesProps || 'monthly'));
 
     const plans: PlanProps[] = [
         {
@@ -54,7 +55,7 @@ export default function Plans() {
             }
         }
     ]
-    const [planSelected, setPlanSelected] = useState<PlanProps>(getObjectFromStorage<PlanProps>('planSelected'));
+    const [planSelected, setPlanSelected] = useState<PlanProps | undefined>(getObjectFromStorage<PlanProps>('planSelected'));
 
 
     useEffect(() => {
@@ -72,7 +73,7 @@ export default function Plans() {
     return (
         <PageContainer>
             <h1>Select your plan</h1>
-            <p>You have the option of monthly or yearly billing.</p>
+            <Paragraph>You have the option of monthly or yearly billing.</Paragraph>
 
             <section className='plans'>
                 {

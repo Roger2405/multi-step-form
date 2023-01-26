@@ -10,24 +10,31 @@
 
     background-color: var(--white);
 
-    .go-back {
-        font-weight: 700;
-        color: var(--cool-gray);
-        background-color: unset;
-        font-size: .85rem;
+    .button {
+        padding: .75rem 0;
         border: none;
+        border-radius: .25rem;
+        font-size: .85rem;
+        font-weight: 700;
+        background-color: unset;
+    }
+
+    .left-button {
+        color: var(--white);
+        margin-left: auto;
+        width: 96px;
+    }
+
+
+    .go-back {
+        color: var(--cool-gray);
     }
 
     .next-step {
         background-color: var(--marine-blue);
+    }
 
-        border: none;
-        font-size: .85rem;
-        border-radius: .25rem;
-
-        color: var(--white);
-
-        padding: .75rem 1.125rem;
-        margin-left: auto;
+    .confirm {
+        background-color: var(--purplish-blue);
     }
 }

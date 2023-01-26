@@ -18,7 +18,7 @@ export default function AddOn({ addOnSelected, addOn, planType, updateSelectedAd
                 <span className='add-on__info--description'>{addOn.description}</span>
             </div>
             <span className='add-on__price'>
-                +${addOn.value[planType]}/{planType == 'monthly' ? 'mo' : 'yr'}
+                +${addOn[planType].value}/{planType == 'monthly' ? 'mo' : 'yr'}
             </span>
         </div >
     )

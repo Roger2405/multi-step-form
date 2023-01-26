@@ -4,9 +4,11 @@ export type AddOnsProps =
     {
         name: string,
         description: string,
-        value: {
-            'monthly': number
-            'yearly': number
+        'monthly': {
+            value: number
+        },
+        'yearly': {
+            value: number
         }
     };
 

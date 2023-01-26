@@ -1,6 +1,6 @@
 .summary {
     // padding: 1rem;
-    background-color: var(--magnolia);
+    background-color: var(--alabaster);
     border-radius: .5rem;
     // gap: .75rem;
     padding-inline: 1rem;
@@ -8,6 +8,12 @@
     flex-direction: column;
 
     .summary__plan {
+        .summary__plan--link {
+            color: var(--cool-gray);
+            // text-decoration: dotted;
+            // text-decoration-line: underline;
+            text-decoration-thickness: 2px;
+        }
 
         .summary__item--name {
             color: var(--marine-blue);
@@ -18,6 +24,7 @@
             font-weight: 700;
         }
     }
+
 
     .summary__add-ons,
     .summary__plan {
@@ -38,8 +45,27 @@
 
         &--value {
             display: inline-block;
+            color: var(--marine-blue);
+            font-weight: 500;
             margin-left: auto;
         }
+
+    }
+}
+
+.div-total {
+    // -top: 2rem;
+    padding: 2rem 1rem 0;
+    display: flex;
+
+    p {
+        font-weight: 500;
+    }
+
+    span {
+        margin-left: auto;
+        font-weight: 700;
+        color: var(--purplish-blue);
 
     }
 }
