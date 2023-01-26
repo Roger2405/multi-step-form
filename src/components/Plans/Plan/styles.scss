@@ -1,0 +1,36 @@
+.plan {
+    display: flex;
+    gap: 1rem;
+
+    border: 1px solid var(--light-gray);
+    border-radius: .5rem;
+
+    height: fit-content;
+    padding: .85rem;
+
+    span {
+        color: var(--cool-gray);
+        font-size: .9rem;
+    }
+
+    &__icon {
+        align-self: flex-start;
+    }
+
+    &__value {
+        margin: .25rem 0;
+        font-size: .85rem;
+    }
+
+    .promotion-msg {
+        margin-top: .25rem;
+        color: var(--marine-blue);
+        font-size: .75rem;
+    }
+
+    &.active {
+        background-color: var(--magnolia);
+        border-color: var(--purplish-blue);
+    }
+
+}

@@ -1,6 +1,7 @@
 
 import Buttons from '../../components/Buttons';
 import PageContainer from '../../components/PageContainer/index';
+import Paragraph from '../../components/Paragraph';
 import './styles.scss';
 
 
@@ -9,7 +10,7 @@ export default function PersonalInfo() {
     return (
         <PageContainer>
             <h1>Personal info</h1>
-            <p>Please provide your name, email address, and phone number.</p>
+            <Paragraph>Please provide your name, email address, and phone number.</Paragraph>
 
             <div className='field'>
                 <label>Name</label>
@@ -23,7 +24,7 @@ export default function PersonalInfo() {
                 <label>Phone Number</label>
                 <input type="tel" placeholder="e.g. +1 234 567 890" />
             </div>
-            <Buttons nextPage='plans' />
+            <Buttons nextPage='/plans' />
         </PageContainer>
 
     )

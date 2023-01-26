@@ -3,72 +3,90 @@ import Buttons from '../../components/Buttons';
 import PageContainer from '../../components/PageContainer/index';
 import './styles.scss';
 
-import Arcade from '../../assets/images/icon-arcade.svg';
-import Advanced from '../../assets/images/icon-advanced.svg';
-import Pro from '../../assets/images/icon-pro.svg';
-import { useState } from 'react';
+import ArcadeIcon from '../../assets/images/icon-arcade.svg';
+import AdvancedIcon from '../../assets/images/icon-advanced.svg';
+import ProIcon from '../../assets/images/icon-pro.svg';
+
+import { useEffect, useState } from 'react';
 import Switch from '../../components/Plans/Switch';
+import { PlanProps, PlanTypesProps } from '../../types';
+import Plan from '../../components/Plans/Plan';
+import getObjectFromStorage from '../../common/functions/getObjectFromStorage';
 
 export default function Plans() {
-    const [planType, setPlanType] = useState<'monthly' | 'yearly'>('monthly');
-    const values = {
-        monthly: {
-            arcade: 9,
-            advanced: 12,
-            pro: 15,
-            suffix: 'mo',
-            promotion: ''
+    const [planType, setPlanType] = useState<PlanTypesProps>(sessionStorage.getItem('planType') as PlanTypesProps);
+
+    const plans: PlanProps[] = [
+        {
+            name: 'Arcade',
+            icon: ArcadeIcon,
+            'monthly': {
+                promotion: '',
+                value: 9
+            },
+            'yearly': {
+                promotion: '2 months free',
+                value: 90
+            }
         },
-        yearly: {
-            arcade: 90,
-            advanced: 120,
-            pro: 150,
-            suffix: 'yr',
-            promotion: '2 months free'
+        {
+            name: 'Advanced',
+            icon: AdvancedIcon,
+            'monthly': {
+                promotion: '',
+                value: 12
+            },
+            'yearly': {
+                promotion: '2 months free',
+                value: 120
+            }
+        },
+        {
+            name: 'Pro',
+            icon: ProIcon,
+            'monthly': {
+                promotion: '',
+                value: 15
+            },
+            'yearly': {
+                promotion: '2 months free',
+                value: 150
+            }
         }
-    }
-    const suffix = values[planType].suffix;
+    ]
+    const [planSelected, setPlanSelected] = useState<PlanProps>(getObjectFromStorage<PlanProps>('planSelected'));
+
+
+    useEffect(() => {
+        if (planSelected) {
+            sessionStorage.setItem('planSelected', JSON.stringify(planSelected))
+        }
+    }, [planSelected])
+
+    useEffect(() => {
+        if (planType) {
+            sessionStorage.setItem('planType', planType)
+        }
+    }, [planType])
+
     return (
         <PageContainer>
             <h1>Select your plan</h1>
             <p>You have the option of monthly or yearly billing.</p>
 
             <section className='plans'>
-
-                <div className='plan active'>
-                    <img className='plan__icon' src={Arcade} alt="" />
-                    <div>
-                        <h2>Arcade</h2>
-                        <p className='plan__value' >${values[planType].arcade}/{suffix}</p>
-                        {values[planType].promotion &&
-                            <span className='promotion-msg'>${values[planType].promotion}</span>
-                        }
-                    </div>
-                </div>
-                <div className='plan'>
-                    <img className='plan__icon' src={Advanced} alt="" />
-                    <div>
-                        <h2>Arcade</h2>
-                        <p className='plan__value' >${values[planType].advanced}/{suffix}</p>
-                        {values[planType].promotion &&
-                            <span className='promotion-msg'>${values[planType].promotion}</span>
-                        }
-                    </div>
-                </div>
-                <div className='plan'>
-                    <img className='plan__icon' src={Pro} alt="" />
-                    <div>
-                        <h2>Arcade</h2>
-                        <p className='plan__value' >${values[planType].pro}/{suffix}</p>
-                        {values[planType].promotion &&
-                            <span className='promotion-msg'>${values[planType].promotion}</span>
-                        }
-                    </div>
-                </div>
+                {
+                    plans.map(plan => (
+                        <div onClick={() => setPlanSelected(plan)}>
+                            <Plan planSelected={planSelected} plan={plan} planType={planType} />
+                        </div>
+                    ))
+                }
             </section>
             <Switch setPlanType={setPlanType} planType={planType} />
 
-            <Buttons previousPage='/' nextPage='add-ons' />
+            <Buttons previousPage='/' nextPage='/add-ons' />
+
         </PageContainer>
 
     )
