@@ -1,7 +1,11 @@
 .add-on {
     &.active {
         border-color: var(--purplish-blue);
-        background-color: var(--magnolia);
+        background-color: var(--alabaster);
+    }
+
+    &:hover {
+        cursor: pointer;
     }
 
     border: 1px solid var(--light-gray);
@@ -9,9 +13,9 @@
 
     display: flex;
     align-items: center;
-    gap: .75rem;
+    gap: 1.25rem;
 
-    padding: .75rem 1rem;
+    padding: .75rem 1.25rem;
 
     &__checkbox {
         // margin-inline: 1rem;
@@ -41,5 +45,15 @@
 
     &__price {
         margin-left: auto;
+        color: var(--purplish-blue);
+        font-weight: 700;
+        font-size: .85rem;
+    }
+}
+
+
+@media screen and (min-width: 1440px) {
+    .add-on {
+        height: 4.75rem;
     }
 }

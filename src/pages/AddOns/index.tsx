@@ -77,9 +77,8 @@ export default function AddOns() {
                 {
                     addOns.map(addOn => {
                         const addOnSelected = addOnsSelected.length ? addOnsSelected?.some(selected => selected.name == addOn.name) : false;
-                        console.log(addOnSelected)
                         return (
-                            <label htmlFor={addOn.name}>
+                            <label key={addOn.name} htmlFor={addOn.name}>
                                 <AddOn
                                     addOn={addOn}
                                     updateSelectedAddOns={updateSelectedAddOns}

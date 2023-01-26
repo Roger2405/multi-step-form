@@ -14,15 +14,15 @@ export default function PersonalInfo() {
 
             <div className='field'>
                 <label>Name</label>
-                <input type='text' placeholder="e.g. Stephen King" />
+                <input type='text' required placeholder="e.g. Stephen King" />
             </div>
             <div className='field'>
                 <label>Email Address</label>
-                <input type="email" placeholder="e.g. stephenking@lorem.com" />
+                <input type="email" required placeholder="e.g. stephenking@lorem.com" />
             </div>
             <div className='field'>
                 <label>Phone Number</label>
-                <input type="tel" placeholder="e.g. +1 234 567 890" />
+                <input type="tel" required placeholder="e.g. +1 234 567 890" />
             </div>
             <Buttons nextPage='/plans' />
         </PageContainer>

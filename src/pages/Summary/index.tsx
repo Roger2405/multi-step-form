@@ -32,7 +32,7 @@ export default function Summary() {
         <PageContainer>
             {
                 finished ?
-                    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
+                    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", height: '100%', textAlign: "center" }}>
                         <img style={{ margin: '2rem 0' }} src={CheckIcon} height={60} />
                         <h1>Thank you!</h1>
                         <Paragraph>
@@ -59,7 +59,7 @@ export default function Summary() {
                                     addOnsSelected &&
                                     addOnsSelected.map(addOn => {
                                         return (
-                                            <div className="summary__item">
+                                            <div key={addOn.name} className="summary__item">
                                                 <p className="summary__item--name">{addOn.name}</p>
                                                 <span className="summary__item--value">+${addOn[planType].value}/{suffix}</span>
                                             </div>
@@ -79,6 +79,6 @@ export default function Summary() {
                     </>
             }
 
-        </PageContainer>
+        </PageContainer >
     )
 }

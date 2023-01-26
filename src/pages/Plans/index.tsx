@@ -78,9 +78,10 @@ export default function Plans() {
             <section className='plans'>
                 {
                     plans.map(plan => (
-                        <div onClick={() => setPlanSelected(plan)}>
-                            <Plan planSelected={planSelected} plan={plan} planType={planType} />
-                        </div>
+                        <Plan key={plan.name}
+                            onClick={() => setPlanSelected(plan)}
+                            planSelected={planSelected} plan={plan} planType={planType} />
+
                     ))
                 }
             </section>

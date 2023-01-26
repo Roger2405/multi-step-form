@@ -10,16 +10,19 @@ import Summary from './pages/Summary'
 
 function App() {
   return (
-    <main className='App'>
-      <Routes>
-        <Route path="/" element={<NavBar />}>
-          <Route index element={<PersonalInfo />} />
-          <Route path="plans" element={<Plans />} />
-          <Route path="add-ons" element={<AddOns />} />
-          <Route path="summary" element={<Summary />} />
-        </Route>
-      </Routes>
-    </main>
+    <div className='App'>
+      <main>
+
+        <Routes>
+          <Route path="/" element={<NavBar />}>
+            <Route index element={<PersonalInfo />} />
+            <Route path="plans" element={<Plans />} />
+            <Route path="add-ons" element={<AddOns />} />
+            <Route path="summary" element={<Summary />} />
+          </Route>
+        </Routes>
+      </main>
+    </div>
   )
 }
 
